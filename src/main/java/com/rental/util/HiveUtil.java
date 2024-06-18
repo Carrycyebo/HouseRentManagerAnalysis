@@ -1,60 +1,67 @@
-package com.niit.util;
+package com.rental.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class HiveUtil {
-    static final String driver ="org.apache.hive.jdbc.HiveDriver";
-    static final String url = "jdbc:hive2://192.168.72.128:10000/practice";
-    static Connection conn= null;
-    static PreparedStatement ps =null;
+    static final String DRIVER ="org.apache.hive.jdbc.HiveDriver";
+    static final String URL = "jdbc:hive2://192.168.10.10:10000/housemanager";
+    static final String USERNAME = "root";
+    static final String PASSWORD = "ZYbr2j9800033";
 
-    static ResultSet rs = null;
-    static {
+    public static Connection getConnection() throws SQLException {
         try {
-            Class.forName(driver);
-        }catch (Exception e){
-            e.printStackTrace();
+            Class.forName(DRIVER);
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("Hive driver not found", e);
+        }
+        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    }
+
+    public static void close(Connection conn, PreparedStatement ps, ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public static Connection getConn(){
-        try {
-            conn = DriverManager.getConnection(url, "root", "Root@1234");
-        }catch (Exception e){
-            e.printStackTrace();
+    public static void close(Connection conn, Statement stmt, ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        return conn;
-    }
-
-    public static PreparedStatement getPs(String sql){
-        try {
-            ps = getConn().prepareStatement(sql);
-        }catch (Exception e){
-            e.printStackTrace();
+        if (stmt != null) {
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        return ps;
-    }
-
-    public static ResultSet getRs(String sql){
-        try {
-            rs = getPs(sql).executeQuery();
-        }catch (Exception e){
-            e.printStackTrace();
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        return rs ;
-    }
-
-    public static void close(){
-        try {
-            if (rs!=null) rs.close();
-            if (ps!=null) ps.close();
-            if (conn!=null) conn.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
     }
 }

@@ -1,13 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
 <head>
-    <title>JSP - Hello World</title>
+    <title>$Title$</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<script>window.location.href="src/pages/DataAnalysis.jsp"</script>
 </body>
 </html>

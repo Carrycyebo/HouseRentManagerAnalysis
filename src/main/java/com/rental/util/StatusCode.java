@@ -1,4 +1,4 @@
-package com.niit.util;
+package com.rental.util;
 
 public class StatusCode {
     public static final String CODE_SUCCESS = "success";
