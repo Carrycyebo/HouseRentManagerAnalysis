@@ -15,7 +15,7 @@ public class RoomDAO {
         List<Room> roomList = new ArrayList<>();
         try (Connection conn = HiveUtil.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT room_type, MAX(rent_price), MIN(rent_price), AVG(rent_price) FROM rental_orders GROUP BY room_type")) {
+             ResultSet rs = stmt.executeQuery("SELECT room_type, MAX(rent_amount), MIN(rent_amount), AVG(rent_amount) FROM rental_orders GROUP BY room_type")) {
 
             while (rs.next()) {
                 String roomType = rs.getString(1);

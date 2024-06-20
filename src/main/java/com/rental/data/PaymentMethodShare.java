@@ -1,6 +1,5 @@
 package com.rental.data;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,14 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Order {
-    private int orderId;
-    private int roomId;
-    private int userId;
-    private String startDate;
-    private String endDate;
+public class PaymentMethodShare {
     private String paymentMethod;
-    private String status;
-
-
+    private int count;
 }

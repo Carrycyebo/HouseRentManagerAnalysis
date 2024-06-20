@@ -1,6 +1,5 @@
 package com.rental.data;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Room {
+public class RoomPopularity {
     private String roomType;
-    private double maxPrice;
-    private double minPrice;
-    private double avgPrice;
-
+    private int popularity;
 }

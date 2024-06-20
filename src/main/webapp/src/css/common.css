@@ -1,0 +1,41 @@
+body {
+    background: url('../images/—Pngtree—business technology background display board_971883.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container-fluid {
+    padding: 1%;
+}
+
+.chart-container {
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1vw;
+    border-radius: 2vw;
+}
+
+.chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 34vh; /* 使用vh单位 */
+}
+
+.large-chart {
+    height: 34vh; /* 使用vh单位 */
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2vh;
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00FFFF, #04f1a2);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    padding: 2vh;
+}

@@ -1,43 +1,66 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>订单完成率分析</title>
-    <!-- 引入 ECharts -->
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <title>数据分析</title>
+<!--         引入 jQuery 和 ECharts -->
+    <script src="<c:url value="/src/package/jQuery/jquery-3.7.1.min.js"/>"></script>
+    <script src="<c:url value="/src/package/echarts/echarts.js"/>"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="<c:url value="/src/package/bootstrap-5.3.0/css/bootstrap.min.css"/>">
+    <script src="<c:url value="/src/package/bootstrap-5.3.0/js/bootstrap.min.js"/>"></script>
+
+    <link rel="stylesheet" type="text/css" href="<c:url value="/src/css/common.css"/>">
+
+
+<%--        <link rel="stylesheet" type="text/css" href="../css/common.css">
+
+        <script src="../package/jQuery/jquery-3.7.1.min.js"></script>
+        <script src="../package/echarts/echarts.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../package/bootstrap-5.3.0/css/bootstrap.min.css">
+        <script src="../package/bootstrap-5.3.0/js/bootstrap.min.js"></script>
+
+
+        <script src="../script/barChart.js"></script>--%>
+
 </head>
 <body>
-<div id="completionRateChart" style="width: 600px;height:400px;"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 title">
+            房屋租赁管理系统数据分析
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 chart-container">
+            <div id="completionRateChart" class="chart"></div>
+        </div>
+        <div class="col-md-4 chart-container">
+            <div id="roomPopularityChart" class="chart"></div>
+        </div>
+        <div class="col-md-6 chart-container">
+            <div id="roomRentStatistics" class="chart large-chart"></div>
+        </div>
 
-<%
-    double completionRate = (Double) request.getAttribute("completionRate");
-%>
+    </div>
+    <div class="row">
+        <div class="col-md-8 chart-container">
+            <div id="monthlyOrdersChart" class="chart large-chart"></div>
+        </div>
+        <div class="col-md-2 chart-container">
+            <div id="paymentMethodsChart" class="chart"></div>
+        </div>
+        <div class="col-md-2 chart-container">
+            <div id="userPreferenceChart" class="chart"></div>
+        </div>
+    </div>
+</div>
 
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('completionRateChart'));
-
-    var option = {
-        title: {
-            text: '订单完成率分析'
-        },
-        tooltip: {},
-        legend: {
-            data:['完成率']
-        },
-        xAxis: {
-            data: ["完成率"]
-        },
-        yAxis: {},
-        series: [{
-            name: '完成率',
-            type: 'bar',
-            data: [<%= completionRate %>]
-        }]
-    };
-
-    myChart.setOption(option);
-</script>
+<script src="<c:url value="/src/script/barChart.js"/>"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@ public class OrderDAO {
         int count = 0;
         try (Connection conn = HiveUtil.getConnection();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM rental_orders WHERE status='completed'")) {
+             ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM rental_orders WHERE status='完成'")) {
 
             if (rs.next()) {
                 count = rs.getInt(1);
