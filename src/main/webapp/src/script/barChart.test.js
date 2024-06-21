@@ -22,7 +22,7 @@ $(document).ready(function () {
                         fontSize: 20
                     }
                 },
-                data: [{value: 50, name: '订单完成率'}],
+                data: [{value: 50.34, name: '订单完成率'}],
                 axisLine: {
                     lineStyle: {
                         color: [[0.3, '#ff4500'], [0.7, '#ffd700'], [1, '#228b22']],
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
     completionRateChart.setOption(completionRateOption);
 
-    $.ajax({
+/*    $.ajax({
         url: '/pages/DataAnalysis',
         type: 'POST',
         dataType: "json",
@@ -75,7 +75,7 @@ $(document).ready(function () {
         error: function (xhr, status, error) {
             console.error('Error fetching data: ' + error);
         }
-    });
+    });*/
 
     // 各类房间租金统计图表 - 条形图
     var roomRentStatisticsChart = echarts.init(document.getElementById('roomRentStatistics'));
@@ -139,7 +139,7 @@ $(document).ready(function () {
 
     roomRentStatisticsChart.setOption(roomRentStatisticsOption);
 
-    $.ajax({
+/*    $.ajax({
         url: '/pages/DataAnalysis',
         type: 'POST',
         dataType: "json",
@@ -167,7 +167,7 @@ $(document).ready(function () {
         error: function (xhr, status, error) {
             console.error('Error fetching data: ' + error);
         }
-    });
+    });*/
 
     // 各类房间受欢迎度图表 - 柱状图
     var roomPopularityChart = echarts.init(document.getElementById('roomPopularityChart'));
@@ -226,7 +226,7 @@ $(document).ready(function () {
 
     roomPopularityChart.setOption(roomPopularityOption);
 
-    $.ajax({
+/*    $.ajax({
         url: '/pages/DataAnalysis',
         type: 'POST',
         dataType: "json",
@@ -246,7 +246,7 @@ $(document).ready(function () {
         error: function (xhr, status, error) {
             console.error('Error fetching data: ' + error);
         }
-    });
+    });*/
 
     // 用户租期偏好图表 - 饼图
     var userPreferenceChart = echarts.init(document.getElementById('userPreferenceChart'));
@@ -316,6 +316,7 @@ $(document).ready(function () {
 
     userPreferenceChart.setOption(userPreferenceOption);
 
+/*
     $.ajax({
         url: '/pages/DataAnalysis',
         type: 'POST',
@@ -334,6 +335,7 @@ $(document).ready(function () {
             console.error('Error fetching data: ' + error);
         }
     });
+*/
 
     // 用户支付方式占比图表 - 饼图
     var paymentMethodsChart = echarts.init(document.getElementById('paymentMethodsChart'));
@@ -391,7 +393,7 @@ $(document).ready(function () {
 
     paymentMethodsChart.setOption(paymentMethodsOption);
 
-    $.ajax({
+/*    $.ajax({
         url: '/pages/DataAnalysis',
         type: 'POST',
         dataType: "json",
@@ -407,7 +409,7 @@ $(document).ready(function () {
         error: function (xhr, status, error) {
             console.error('Error fetching data: ' + error);
         }
-    });
+    });*/
 
     // 每月订单数量变化图表 - 折线图
     var monthlyOrdersChart = echarts.init(document.getElementById('monthlyOrdersChart'));
@@ -467,7 +469,7 @@ $(document).ready(function () {
 
     monthlyOrdersChart.setOption(monthlyOrdersOption);
 
-    $.ajax({
+    /*$.ajax({
         url: '/pages/DataAnalysis',
         type: 'POST',
         dataType: "json",
@@ -487,5 +489,5 @@ $(document).ready(function () {
         error: function (xhr, status, error) {
             console.error('Error fetching data: ' + error);
         }
-    });
+    });*/
 });
